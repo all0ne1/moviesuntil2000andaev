@@ -5,7 +5,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
-import java.net.SocketOption;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,8 +21,9 @@ public class Main {
                 .max((movie1,movie2) -> Integer.compare(movie1.getCast(), movie2.getCast()));
         if (movieWithMostActors.isPresent()){
             MovieDTO mostActorsMovie = movieWithMostActors.get();
-            System.out.println(mostActorsMovie.getTitle());
-            System.out.println(mostActorsMovie.getCast());
+            System.out.println("Название фильма: " + mostActorsMovie.getTitle());
+            System.out.println("Год выпуска: " + mostActorsMovie.getYear());
+            System.out.println("Кол-во актеров: " + mostActorsMovie.getCast());
         }
         else{
             System.out.println("Err");
